@@ -1,4 +1,5 @@
 <template>
+  <h1>Hello DOM</h1>
   <div>
     <img alt="Vue logo" src="./assets/logo.png" />
     <NavBar />
@@ -11,6 +12,14 @@ export default {
   name: "App",
   components: {
     NavBar,
+  },
+  created() {
+    console.log(document.querySelector("h1"));
+    // created vẫn chưa thể truy cập dom vào thời điểm create
+  },
+  mounted() {
+    console.log(document.querySelector("h1"));
+    // có thể truy cập dom vào thời điểm mounted
   },
 };
 </script>

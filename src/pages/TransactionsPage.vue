@@ -17,12 +17,13 @@ export default {
   name: "TransactionsPage",
   data() {
     return {
-      transactions: [
-        { id: 1, name: "Đi siêu thị", price: 200000 },
-        { id: 2, name: "Thanh toán tiền nhà", price: 3000000 },
-        { id: 3, name: "Thanh toán điện nước", price: 2000000 },
-      ],
+      transactions: [],
     };
+  },
+  created() {
+    fetch("http://localhost:3000/transactions")
+      .then((response) => response.json())
+      .then((data) => (this.transactions = data));
   },
 };
 </script>
